@@ -37,7 +37,7 @@ L'applicazione sarà disponibile su `http://localhost:4004`
 
 ## Navigazione
 
-1. Apri il browser all'indirizzo: `http://localhost:4004/launchpad/index.html`
+1. Apri il browser all'indirizzo: `http://localhost:4004/launchpad/webapp/index.html`
 2. Vedrai 3 tile:
    - **Gestione Ordini** - Gestisci gli ordini clienti
    - **Catalogo Prodotti** - Gestisci i prodotti in catalogo
@@ -56,7 +56,10 @@ L'applicazione sarà disponibile su `http://localhost:4004`
 .
 ├── app/                           # Applicazioni SAPUI5
 │   ├── launchpad/                # Launchpad principale con tile
-│   │   └── index.html           # Vista principale launchpad
+│   │   └── webapp/
+│   │       ├── index.html       # Entry point
+│   │       ├── mainView.view.xml        # Vista principale
+│   │       └── mainView.controller.js   # Controller
 │   ├── orders/                   # App Gestione Ordini
 │   │   └── webapp/
 │   │       ├── index.html       # Entry point

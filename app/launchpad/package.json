@@ -1,0 +1,8 @@
+{
+  "name": "launchpad",
+  "version": "1.0.0",
+  "description": "Business Application Launchpad",
+  "scripts": {
+    "start": "echo 'Navigate to /launchpad/webapp/index.html'"
+  }
+}

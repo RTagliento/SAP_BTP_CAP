@@ -27,6 +27,7 @@
     }
   },
   "sapux": [
+    "app/launchpad",
     "app/orders",
     "app/products",
     "app/customers"

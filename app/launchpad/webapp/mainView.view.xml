@@ -1,0 +1,69 @@
+<mvc:View
+    controllerName="launchpad.mainView.controller"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    displayBlock="true">
+
+    <App id="launchpadApp">
+        <Page
+            id="launchpadPage"
+            title="Business Applications"
+            enableScrolling="true">
+
+            <content>
+                <!-- Panel di Benvenuto -->
+                <Panel
+                    headerText="Benvenuto nel portale aziendale"
+                    class="sapUiResponsiveMargin"
+                    width="auto">
+                    <content>
+                        <VBox class="sapUiSmallMargin">
+                            <Text text="Seleziona un'applicazione per iniziare" class="sapUiTinyMarginBottom"/>
+                            <Text text="Hai accesso a {/tileCount} applicazioni" class="sapUiTinyMarginTop"/>
+                        </VBox>
+                    </content>
+                </Panel>
+
+                <!-- Tile Container -->
+                <TileContainer
+                    id="tileContainer"
+                    tiles="{/tiles}">
+                    <StandardTile
+                        icon="{icon}"
+                        title="{title}"
+                        info="{info}"
+                        infoState="{infoState}"
+                        number="{number}"
+                        numberUnit="{numberUnit}"
+                        press="onTilePress"/>
+                </TileContainer>
+
+                <!-- Info Panel -->
+                <Panel
+                    headerText="Informazioni Sistema"
+                    class="sapUiResponsiveMargin"
+                    expandable="true"
+                    expanded="false">
+                    <content>
+                        <VBox class="sapUiSmallMargin">
+                            <Label text="Versione: 1.0.0" class="sapUiTinyMarginBottom"/>
+                            <Label text="Ambiente: Sviluppo" class="sapUiTinyMarginBottom"/>
+                            <Label text="Database: SQLite" class="sapUiTinyMarginBottom"/>
+                        </VBox>
+                    </content>
+                </Panel>
+            </content>
+
+            <footer>
+                <OverflowToolbar>
+                    <ToolbarSpacer/>
+                    <Button
+                        text="Aggiorna"
+                        icon="sap-icon://refresh"
+                        press="onRefresh"/>
+                </OverflowToolbar>
+            </footer>
+        </Page>
+    </App>
+</mvc:View>
