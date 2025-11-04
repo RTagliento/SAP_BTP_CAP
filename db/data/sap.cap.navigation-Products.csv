@@ -1,0 +1,7 @@
+ID;productCode;productName;category;price;stock;description;createdAt;createdBy;modifiedAt;modifiedBy
+2001;P001;Laptop Business;Elettronica;899.99;50;Laptop professionale per ufficio;2024-01-01;system;2024-01-01;system
+2002;P002;Mouse Wireless;Accessori;29.99;200;Mouse wireless ergonomico;2024-01-02;system;2024-01-02;system
+2003;P003;Tastiera Meccanica;Accessori;79.99;100;Tastiera meccanica RGB;2024-01-03;system;2024-01-03;system
+2004;P004;Monitor 27;Elettronica;299.99;75;Monitor 27 pollici 4K;2024-01-04;system;2024-01-04;system
+2005;P005;Webcam HD;Elettronica;89.99;150;Webcam Full HD 1080p;2024-01-05;system;2024-01-05;system
+2006;P006;Cuffie Bluetooth;Accessori;59.99;120;Cuffie wireless con cancellazione rumore;2024-01-06;system;2024-01-06;system

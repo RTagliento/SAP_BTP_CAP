@@ -1,0 +1,36 @@
+# Node modules
+node_modules/
+
+# Build artifacts
+dist/
+gen/
+*.db
+*.sqlite
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# SAP specific
+default-*.json
+fiori-tools-*
+.env
+.env.local
+mta_archives/

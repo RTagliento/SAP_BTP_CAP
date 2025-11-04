@@ -1,0 +1,6 @@
+ID;customerCode;firstName;lastName;email;phone;city;country;createdAt;createdBy;modifiedAt;modifiedBy
+1001;C001;Mario;Rossi;mario.rossi@email.com;+39 123 456789;Roma;Italia;2024-01-01;system;2024-01-01;system
+1002;C002;Luigi;Verdi;luigi.verdi@email.com;+39 234 567890;Milano;Italia;2024-01-02;system;2024-01-02;system
+1003;C003;Anna;Bianchi;anna.bianchi@email.com;+39 345 678901;Napoli;Italia;2024-01-03;system;2024-01-03;system
+1004;C004;Paolo;Neri;paolo.neri@email.com;+39 456 789012;Torino;Italia;2024-01-04;system;2024-01-04;system
+1005;C005;Laura;Gialli;laura.gialli@email.com;+39 567 890123;Firenze;Italia;2024-01-05;system;2024-01-05;system

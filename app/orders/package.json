@@ -1,0 +1,11 @@
+{
+  "name": "orders",
+  "version": "1.0.0",
+  "description": "Gestione Ordini",
+  "scripts": {
+    "start": "fiori run --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#orders-display\""
+  },
+  "devDependencies": {
+    "@sap/ux-specification": "latest"
+  }
+}

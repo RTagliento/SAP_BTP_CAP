@@ -1,0 +1,34 @@
+{
+  "name": "sap-cap-tile-navigation",
+  "version": "1.0.0",
+  "description": "SAP CAP Project with Tile Navigation",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^7",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "deploy": "cds deploy --to sqlite"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "database": "db.sqlite"
+        }
+      }
+    }
+  },
+  "sapux": [
+    "app/orders",
+    "app/products",
+    "app/customers"
+  ]
+}

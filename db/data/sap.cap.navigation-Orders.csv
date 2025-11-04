@@ -1,0 +1,6 @@
+ID;orderNumber;orderDate;customer_ID;totalAmount;status;description;createdAt;createdBy;modifiedAt;modifiedBy
+3001;ORD001;2024-10-01;1001;1299.98;Completato;Ordine laptop e mouse;2024-10-01;system;2024-10-01;system
+3002;ORD002;2024-10-15;1002;379.98;In Lavorazione;Ordine monitor;2024-10-15;system;2024-10-15;system
+3003;ORD003;2024-10-20;1003;149.97;Spedito;Ordine accessori;2024-10-20;system;2024-10-20;system
+3004;ORD004;2024-10-25;1001;899.99;Completato;Ordine laptop aggiuntivo;2024-10-25;system;2024-10-25;system
+3005;ORD005;2024-11-01;1004;389.97;In Lavorazione;Ordine monitor e webcam;2024-11-01;system;2024-11-01;system

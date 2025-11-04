@@ -1,0 +1,105 @@
+{
+  "_version": "1.49.0",
+  "sap.app": {
+    "id": "customers",
+    "type": "application",
+    "title": "Gestione Clienti",
+    "description": "Applicazione per la gestione dei clienti",
+    "dataSources": {
+      "mainService": {
+        "uri": "/customers/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "dependencies": {
+      "minUI5Version": "1.108.0",
+      "libs": {
+        "sap.fe.templates": {}
+      }
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "customers.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      }
+    },
+    "routing": {
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "CustomersList",
+          "target": "CustomersList"
+        },
+        {
+          "pattern": "Customers({key}):?query:",
+          "name": "CustomersDetail",
+          "target": "CustomersDetail"
+        }
+      ],
+      "targets": {
+        "CustomersList": {
+          "type": "Component",
+          "id": "CustomersList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/Customers",
+              "variantManagement": "Page",
+              "navigation": {
+                "Customers": {
+                  "detail": {
+                    "route": "CustomersDetail"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "CustomersDetail": {
+          "type": "Component",
+          "id": "CustomersDetail",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "contextPath": "/Customers",
+              "editableHeaderContent": false
+            }
+          }
+        }
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  }
+}

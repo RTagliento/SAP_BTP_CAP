@@ -1,0 +1,105 @@
+{
+  "_version": "1.49.0",
+  "sap.app": {
+    "id": "orders",
+    "type": "application",
+    "title": "Gestione Ordini",
+    "description": "Applicazione per la gestione degli ordini",
+    "dataSources": {
+      "mainService": {
+        "uri": "/orders/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "dependencies": {
+      "minUI5Version": "1.108.0",
+      "libs": {
+        "sap.fe.templates": {}
+      }
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "orders.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      }
+    },
+    "routing": {
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "OrdersList",
+          "target": "OrdersList"
+        },
+        {
+          "pattern": "Orders({key}):?query:",
+          "name": "OrdersDetail",
+          "target": "OrdersDetail"
+        }
+      ],
+      "targets": {
+        "OrdersList": {
+          "type": "Component",
+          "id": "OrdersList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/Orders",
+              "variantManagement": "Page",
+              "navigation": {
+                "Orders": {
+                  "detail": {
+                    "route": "OrdersDetail"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "OrdersDetail": {
+          "type": "Component",
+          "id": "OrdersDetail",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "contextPath": "/Orders",
+              "editableHeaderContent": false
+            }
+          }
+        }
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  }
+}

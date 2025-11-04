@@ -1,0 +1,11 @@
+{
+  "name": "products",
+  "version": "1.0.0",
+  "description": "Catalogo Prodotti",
+  "scripts": {
+    "start": "fiori run --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#products-display\""
+  },
+  "devDependencies": {
+    "@sap/ux-specification": "latest"
+  }
+}
