@@ -5,6 +5,9 @@
     "type": "application",
     "title": "Gestione Ordini",
     "description": "Applicazione per la gestione degli ordini",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
     "dataSources": {
       "mainService": {
         "uri": "/orders/",
@@ -27,8 +30,16 @@
     "dependencies": {
       "minUI5Version": "1.108.0",
       "libs": {
-        "sap.fe.templates": {}
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ui.table": {}
       }
+    },
+    "rootView": {
+      "viewName": "orders.mainView",
+      "type": "XML",
+      "async": true,
+      "id": "app"
     },
     "models": {
       "i18n": {
@@ -45,51 +56,6 @@
           "operationMode": "Server",
           "autoExpandSelect": true,
           "earlyRequests": true
-        }
-      }
-    },
-    "routing": {
-      "routes": [
-        {
-          "pattern": ":?query:",
-          "name": "OrdersList",
-          "target": "OrdersList"
-        },
-        {
-          "pattern": "Orders({key}):?query:",
-          "name": "OrdersDetail",
-          "target": "OrdersDetail"
-        }
-      ],
-      "targets": {
-        "OrdersList": {
-          "type": "Component",
-          "id": "OrdersList",
-          "name": "sap.fe.templates.ListReport",
-          "options": {
-            "settings": {
-              "contextPath": "/Orders",
-              "variantManagement": "Page",
-              "navigation": {
-                "Orders": {
-                  "detail": {
-                    "route": "OrdersDetail"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "OrdersDetail": {
-          "type": "Component",
-          "id": "OrdersDetail",
-          "name": "sap.fe.templates.ObjectPage",
-          "options": {
-            "settings": {
-              "contextPath": "/Orders",
-              "editableHeaderContent": false
-            }
-          }
         }
       }
     },

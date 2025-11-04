@@ -11,19 +11,20 @@
         data-sap-ui-libs="sap.m, sap.ui.core, sap.ui.table"
         data-sap-ui-compatVersion="edge"
         data-sap-ui-async="true"
+        data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
         data-sap-ui-frameOptions="trusted"
         data-sap-ui-resourceroots='{
             "orders": "./"
         }'>
     </script>
-    <script>
-        sap.ui.getCore().attachInit(function() {
-            sap.ui.xmlview({
-                viewName: "orders.mainView"
-            }).placeAt("content");
-        });
-    </script>
 </head>
 <body class="sapUiBody" id="content">
+    <div
+        data-sap-ui-component
+        data-name="orders"
+        data-id="container"
+        data-settings='{"id": "orders"}'
+        style="width: 100%; height: 100%;">
+    </div>
 </body>
 </html>
