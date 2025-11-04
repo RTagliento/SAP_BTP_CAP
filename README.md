@@ -57,24 +57,29 @@ L'applicazione sarà disponibile su `http://localhost:4004`
 ├── app/                           # Applicazioni SAPUI5
 │   ├── launchpad/                # Launchpad principale con tile
 │   │   └── webapp/
-│   │       ├── index.html       # Entry point
-│   │       ├── mainView.view.xml        # Vista principale
-│   │       └── mainView.controller.js   # Controller
+│   │       ├── index.html              # Entry point
+│   │       ├── manifest.json           # Configurazione app
+│   │       ├── Component.js            # Component controller
+│   │       ├── mainView.view.xml       # Vista principale
+│   │       └── mainView.controller.js  # Controller
 │   ├── orders/                   # App Gestione Ordini
 │   │   └── webapp/
-│   │       ├── index.html       # Entry point
-│   │       ├── mainView.view.xml        # Vista principale
-│   │       └── mainView.controller.js   # Controller
+│   │       ├── index.html              # Entry point
+│   │       ├── manifest.json           # Configurazione app
+│   │       ├── mainView.view.xml       # Vista principale
+│   │       └── mainView.controller.js  # Controller
 │   ├── products/                 # App Catalogo Prodotti
 │   │   └── webapp/
-│   │       ├── index.html       # Entry point
-│   │       ├── mainView.view.xml        # Vista principale
-│   │       └── mainView.controller.js   # Controller
+│   │       ├── index.html              # Entry point
+│   │       ├── manifest.json           # Configurazione app
+│   │       ├── mainView.view.xml       # Vista principale
+│   │       └── mainView.controller.js  # Controller
 │   └── customers/                # App Gestione Clienti
 │       └── webapp/
-│           ├── index.html       # Entry point
-│           ├── mainView.view.xml        # Vista principale
-│           └── mainView.controller.js   # Controller
+│           ├── index.html              # Entry point
+│           ├── manifest.json           # Configurazione app
+│           ├── mainView.view.xml       # Vista principale
+│           └── mainView.controller.js  # Controller
 ├── db/                           # Modello dati e dati di esempio
 │   ├── schema.cds               # Definizione entità
 │   └── data/                    # File CSV con dati di esempio
@@ -93,9 +98,11 @@ L'applicazione sarà disponibile su `http://localhost:4004`
 
 ## Architettura delle Webapp
 
-Ogni applicazione segue il pattern MVC classico di SAPUI5:
+Ogni applicazione segue il pattern MVC classico di SAPUI5 con struttura completa:
 
-- **index.html**: File HTML basico che carica SAPUI5 e inizializza la vista
+- **index.html**: File HTML basico che carica SAPUI5 e inizializza l'applicazione
+- **manifest.json**: Configurazione dell'applicazione (metadati, modelli, routing)
+- **Component.js**: Component controller che carica il manifest (solo launchpad)
 - **mainView.view.xml**: Vista XML con la struttura UI (tabelle, filtri, pulsanti)
 - **mainView.controller.js**: Controller JavaScript con la logica applicativa
 
