@@ -54,37 +54,75 @@ L'applicazione sarà disponibile su `http://localhost:4004`
 
 ```
 .
-├── app/                    # Applicazioni Fiori
-│   ├── launchpad/         # Launchpad principale con tile
-│   ├── orders/            # App Gestione Ordini
-│   ├── products/          # App Catalogo Prodotti
-│   └── customers/         # App Gestione Clienti
-├── db/                     # Modello dati e dati di esempio
-│   ├── schema.cds         # Definizione entità
-│   └── data/              # File CSV con dati di esempio
-└── srv/                    # Servizi CAP
-    └── service.cds        # Definizione servizi OData
+├── app/                           # Applicazioni SAPUI5
+│   ├── launchpad/                # Launchpad principale con tile
+│   │   └── index.html           # Vista principale launchpad
+│   ├── orders/                   # App Gestione Ordini
+│   │   └── webapp/
+│   │       ├── index.html       # Entry point
+│   │       ├── mainView.view.xml        # Vista principale
+│   │       └── mainView.controller.js   # Controller
+│   ├── products/                 # App Catalogo Prodotti
+│   │   └── webapp/
+│   │       ├── index.html       # Entry point
+│   │       ├── mainView.view.xml        # Vista principale
+│   │       └── mainView.controller.js   # Controller
+│   └── customers/                # App Gestione Clienti
+│       └── webapp/
+│           ├── index.html       # Entry point
+│           ├── mainView.view.xml        # Vista principale
+│           └── mainView.controller.js   # Controller
+├── db/                           # Modello dati e dati di esempio
+│   ├── schema.cds               # Definizione entità
+│   └── data/                    # File CSV con dati di esempio
+└── srv/                          # Servizi CAP
+    └── service.cds              # Definizione servizi OData
 ```
 
 ## Tecnologie Utilizzate
 
 - SAP Cloud Application Programming Model (CAP)
-- SAP Fiori Elements
-- SAPUI5
+- SAPUI5 con pattern MVC (Model-View-Controller)
+- XML Views per le interfacce utente
+- JavaScript Controllers per la logica applicativa
 - SQLite (database locale)
 - OData V4
 
+## Architettura delle Webapp
+
+Ogni applicazione segue il pattern MVC classico di SAPUI5:
+
+- **index.html**: File HTML basico che carica SAPUI5 e inizializza la vista
+- **mainView.view.xml**: Vista XML con la struttura UI (tabelle, filtri, pulsanti)
+- **mainView.controller.js**: Controller JavaScript con la logica applicativa
+
+### Funzionalità implementate:
+
+- Visualizzazione dati in tabelle responsive
+- Ricerca e filtro dei dati
+- Refresh dei dati
+- Visualizzazione dettagli al click su elemento
+- Navigazione back al launchpad
+- Binding OData V4
+
 ## Sviluppo
 
-Per aggiungere nuove entità o modificare quelle esistenti:
+Per modificare le applicazioni:
 
-1. Modifica il file `db/schema.cds`
-2. Esponi le entità nei servizi in `srv/service.cds`
-3. Aggiungi annotazioni UI in `app/[app-name]/annotations.cds`
-4. Riavvia il server
+1. **Modificare la vista**: Edita i file `mainView.view.xml`
+2. **Modificare la logica**: Edita i file `mainView.controller.js`
+3. **Modificare i dati**: Edita `db/schema.cds` e `srv/service.cds`
+4. **Riavvia il server**: `npm start`
+
+Per aggiungere nuove viste:
+1. Crea un nuovo file `.view.xml`
+2. Crea il relativo `.controller.js`
+3. Configura la navigazione nell'`index.html`
 
 ## Note
 
 - Il progetto utilizza SQLite come database locale per lo sviluppo
 - I dati di esempio vengono caricati automaticamente all'avvio
-- Le applicazioni utilizzano SAP Fiori Elements con template List Report e Object Page
+- Le applicazioni utilizzano SAPUI5 custom con pattern MVC
+- Ogni webapp ha la sua view e controller indipendenti
+- Il tema utilizzato è SAP Horizon

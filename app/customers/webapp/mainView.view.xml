@@ -1,0 +1,93 @@
+<mvc:View
+    controllerName="customers.mainView.controller"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    displayBlock="true">
+
+    <Page
+        id="customersPage"
+        title="Gestione Clienti"
+        showNavButton="true"
+        navButtonPress="onNavBack">
+
+        <content>
+            <Panel headerText="Lista Clienti" class="sapUiResponsiveMargin">
+                <content>
+                    <Table
+                        id="customersTable"
+                        items="{/Customers}"
+                        growing="true"
+                        growingThreshold="20"
+                        mode="SingleSelectMaster">
+
+                        <headerToolbar>
+                            <OverflowToolbar>
+                                <content>
+                                    <Title text="Clienti" level="H2"/>
+                                    <ToolbarSpacer/>
+                                    <SearchField
+                                        width="50%"
+                                        search="onSearch"
+                                        placeholder="Cerca clienti..."/>
+                                    <Button
+                                        icon="sap-icon://refresh"
+                                        press="onRefresh"
+                                        tooltip="Aggiorna"/>
+                                </content>
+                            </OverflowToolbar>
+                        </headerToolbar>
+
+                        <columns>
+                            <Column width="12em">
+                                <Text text="Codice Cliente"/>
+                            </Column>
+                            <Column width="15em">
+                                <Text text="Nome Completo"/>
+                            </Column>
+                            <Column width="auto">
+                                <Text text="Email"/>
+                            </Column>
+                            <Column width="15em">
+                                <Text text="Telefono"/>
+                            </Column>
+                            <Column width="12em">
+                                <Text text="Città"/>
+                            </Column>
+                            <Column width="12em">
+                                <Text text="Paese"/>
+                            </Column>
+                        </columns>
+
+                        <items>
+                            <ColumnListItem type="Active" press="onItemPress">
+                                <cells>
+                                    <ObjectIdentifier
+                                        title="{customerCode}"/>
+                                    <ObjectIdentifier
+                                        title="{firstName} {lastName}"/>
+                                    <Link
+                                        text="{email}"
+                                        href="mailto:{email}"/>
+                                    <Text text="{phone}"/>
+                                    <Text text="{city}"/>
+                                    <Text text="{country}"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </content>
+            </Panel>
+        </content>
+
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer/>
+                <Button
+                    text="Torna al Launchpad"
+                    icon="sap-icon://home"
+                    press="onNavBack"/>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

@@ -1,0 +1,104 @@
+<mvc:View
+    controllerName="products.mainView.controller"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    displayBlock="true">
+
+    <Page
+        id="productsPage"
+        title="Catalogo Prodotti"
+        showNavButton="true"
+        navButtonPress="onNavBack">
+
+        <content>
+            <Panel headerText="Lista Prodotti" class="sapUiResponsiveMargin">
+                <content>
+                    <Table
+                        id="productsTable"
+                        items="{/Products}"
+                        growing="true"
+                        growingThreshold="20"
+                        mode="SingleSelectMaster">
+
+                        <headerToolbar>
+                            <OverflowToolbar>
+                                <content>
+                                    <Title text="Prodotti" level="H2"/>
+                                    <ToolbarSpacer/>
+                                    <SearchField
+                                        width="50%"
+                                        search="onSearch"
+                                        placeholder="Cerca prodotti..."/>
+                                    <Button
+                                        icon="sap-icon://refresh"
+                                        press="onRefresh"
+                                        tooltip="Aggiorna"/>
+                                </content>
+                            </OverflowToolbar>
+                        </headerToolbar>
+
+                        <columns>
+                            <Column width="12em">
+                                <Text text="Codice Prodotto"/>
+                            </Column>
+                            <Column width="auto">
+                                <Text text="Nome Prodotto"/>
+                            </Column>
+                            <Column width="12em">
+                                <Text text="Categoria"/>
+                            </Column>
+                            <Column width="12em" hAlign="End">
+                                <Text text="Prezzo"/>
+                            </Column>
+                            <Column width="10em" hAlign="End">
+                                <Text text="Giacenza"/>
+                            </Column>
+                            <Column width="auto">
+                                <Text text="Descrizione"/>
+                            </Column>
+                        </columns>
+
+                        <items>
+                            <ColumnListItem type="Active" press="onItemPress">
+                                <cells>
+                                    <ObjectIdentifier
+                                        title="{productCode}"/>
+                                    <Text text="{productName}"/>
+                                    <Text text="{category}"/>
+                                    <ObjectNumber
+                                        number="{
+                                            path: 'price',
+                                            type: 'sap.ui.model.type.Float',
+                                            formatOptions: {
+                                                minFractionDigits: 2,
+                                                maxFractionDigits: 2
+                                            }
+                                        }"
+                                        unit="EUR"/>
+                                    <ObjectNumber
+                                        number="{stock}"
+                                        state="{
+                                            path: 'stock',
+                                            formatter: '.formatStockState'
+                                        }"/>
+                                    <Text text="{description}"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </content>
+            </Panel>
+        </content>
+
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer/>
+                <Button
+                    text="Torna al Launchpad"
+                    icon="sap-icon://home"
+                    press="onNavBack"/>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

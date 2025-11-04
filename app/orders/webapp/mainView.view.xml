@@ -1,0 +1,110 @@
+<mvc:View
+    controllerName="orders.mainView.controller"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    displayBlock="true">
+
+    <Page
+        id="ordersPage"
+        title="Gestione Ordini"
+        showNavButton="true"
+        navButtonPress="onNavBack">
+
+        <content>
+            <Panel headerText="Lista Ordini" class="sapUiResponsiveMargin">
+                <content>
+                    <Table
+                        id="ordersTable"
+                        items="{/Orders}"
+                        growing="true"
+                        growingThreshold="20"
+                        mode="SingleSelectMaster">
+
+                        <headerToolbar>
+                            <OverflowToolbar>
+                                <content>
+                                    <Title text="Ordini" level="H2"/>
+                                    <ToolbarSpacer/>
+                                    <SearchField
+                                        width="50%"
+                                        search="onSearch"
+                                        placeholder="Cerca ordini..."/>
+                                    <Button
+                                        icon="sap-icon://refresh"
+                                        press="onRefresh"
+                                        tooltip="Aggiorna"/>
+                                </content>
+                            </OverflowToolbar>
+                        </headerToolbar>
+
+                        <columns>
+                            <Column width="12em">
+                                <Text text="Numero Ordine"/>
+                            </Column>
+                            <Column width="12em">
+                                <Text text="Data Ordine"/>
+                            </Column>
+                            <Column width="15em">
+                                <Text text="Cliente"/>
+                            </Column>
+                            <Column width="12em" hAlign="End">
+                                <Text text="Importo Totale"/>
+                            </Column>
+                            <Column width="12em">
+                                <Text text="Stato"/>
+                            </Column>
+                            <Column width="auto">
+                                <Text text="Descrizione"/>
+                            </Column>
+                        </columns>
+
+                        <items>
+                            <ColumnListItem type="Active" press="onItemPress">
+                                <cells>
+                                    <ObjectIdentifier
+                                        title="{orderNumber}"/>
+                                    <Text text="{
+                                        path: 'orderDate',
+                                        type: 'sap.ui.model.type.Date',
+                                        formatOptions: {
+                                            pattern: 'dd/MM/yyyy'
+                                        }
+                                    }"/>
+                                    <Text text="{customer/firstName} {customer/lastName}"/>
+                                    <ObjectNumber
+                                        number="{
+                                            path: 'totalAmount',
+                                            type: 'sap.ui.model.type.Float',
+                                            formatOptions: {
+                                                minFractionDigits: 2,
+                                                maxFractionDigits: 2
+                                            }
+                                        }"
+                                        unit="EUR"/>
+                                    <ObjectStatus
+                                        text="{status}"
+                                        state="{
+                                            path: 'status',
+                                            formatter: '.formatStatusState'
+                                        }"/>
+                                    <Text text="{description}"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </content>
+            </Panel>
+        </content>
+
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer/>
+                <Button
+                    text="Torna al Launchpad"
+                    icon="sap-icon://home"
+                    press="onNavBack"/>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>
